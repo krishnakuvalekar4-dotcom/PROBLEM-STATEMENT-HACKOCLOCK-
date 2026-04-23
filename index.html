@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urban Heat Island MVP</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="map-frame">
+      <aside class="right-panel">
+        <section class="info-card">
+          <h3>Region Information</h3>
+          <div class="info-grid">
+            <p><strong>Region:</strong> <span id="regionName">Loading...</span></p>
+            <p><strong>City:</strong> <span id="regionCity">Loading...</span></p>
+            <p><strong>State:</strong> <span id="regionState">Loading...</span></p>
+            <p><strong>Temperature:</strong> <span id="regionTemp">--</span></p>
+            <p><strong>Heat Risk Level:</strong> <span class="risk-badge" id="riskLevel">--</span></p>
+            <p><strong>Risk Score:</strong> <span id="riskScore">--</span></p>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h3>Cooling Solutions</h3>
+          <div class="solutions-list" id="solutionsList"></div>
+        </section>
+
+        <section class="info-card">
+          <h3>Health &amp; Safety</h3>
+          <div class="health-box">
+            <strong id="healthTitle">Heat advisory loading...</strong>
+            <ul id="healthList"></ul>
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h3>National Priority Analysis</h3>
+          <div class="priority-list" id="priorityList"></div>
+        </section>
+
+        <section class="info-card output-card">
+          <h3>Output Panel</h3>
+          <div class="output-list">
+            <p><strong>Current Temperature:</strong> <span id="outputCurrentTemp">--</span></p>
+            <p><strong>Temperature After Intervention:</strong> <span id="outputAfterTemp">--</span></p>
+            <p><strong>Recommended Action:</strong> <span id="outputAction">--</span></p>
+            <p><strong>Reason:</strong> <span id="outputReason">--</span></p>
+            <p><strong>Expected Reduction:</strong> <span id="outputReduction">--</span></p>
+            <p><strong>Priority:</strong> <span id="outputPriority">--</span></p>
+          </div>
+        </section>
+      </aside>
+
+      <div id="map"></div>
+
+      <div class="map-overlay top-left">
+        <div class="status-dot"></div>
+        <span id="mapStatus">Loading state heatmap...</span>
+      </div>
+
+      <div class="map-overlay top-right">
+        <strong>Heat %</strong>
+        <div class="legend-scale">
+          <span class="cool"></span>
+          <span class="warm"></span>
+          <span class="hot"></span>
+        </div>
+        <div class="legend-labels">
+          <span>0%</span>
+          <span>50%</span>
+          <span>100%</span>
+        </div>
+      </div>
+
+      <div class="map-overlay bottom-left compact-stats">
+        <div>
+          <small>Peak hotspot</small>
+          <strong id="peakHeat">--</strong>
+        </div>
+        <div>
+          <small>Average hotspot</small>
+          <strong id="avgHeat">--</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
